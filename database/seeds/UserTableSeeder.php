@@ -17,11 +17,11 @@ class UserTableSeeder extends Seeder
         $admin_role = Role::where('name', 'Admin')->first();
 
         $user = new User();
-        $user->name="Ibeanu Hillary";
-        $user->email="ibeauhillary@gmail.com";
-        $user->password=bcrypt('clinsmann');
+        $user->name="admin";
+        $user->email="admin@altaracredit.com";
+        $user->password=bcrypt('administrator');
         $user->save();
-        $user->roles()->attach($user_role);
+        $user->roles()->attach($admin_role);
 
         $user2 = new User();
         $user2->name="Ibeanu Clinton";
@@ -30,11 +30,5 @@ class UserTableSeeder extends Seeder
         $user2->save();
         $user2->roles()->attach($user_role);
 
-        $admin = new User();
-        $admin->name="admin";
-        $admin->email="admin@gmail.com";
-        $admin->password=bcrypt('admin');
-        $admin->save();
-        $admin->roles()->attach($admin_role);
     }
 }
