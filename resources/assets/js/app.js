@@ -1,6 +1,7 @@
 window.$ = window.jQuery = require('jquery'); // <-- main, not 'slim'
 window.Popper = require('popper.js').default;
 require('bootstrap');
+require('./argon');
 
 import Vue from 'vue'
 import App from './App.vue'

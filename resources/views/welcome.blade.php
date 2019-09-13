@@ -18,7 +18,12 @@
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     {{--<link rel="stylesheet" href="{{ mix('/css/all.css') }}">--}}
     <title>Altara CMS - Portal </title>
-	
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <!--<script src="js/html5shiv.min.js"></script>
