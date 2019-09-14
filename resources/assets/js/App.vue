@@ -4,7 +4,6 @@
         <router-view></router-view>
         <app-footer/>
     </div>
-
 </template>
 <script type="text/javascript">
     import Sidebar from "./components/Sidebar.vue";

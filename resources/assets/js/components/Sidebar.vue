@@ -23,25 +23,40 @@
             <div class="card-body p-0">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="appliance" role="tabpanel">
-                        <div v-for="category in categories" class="category-item py-4 px-4">
-                            <router-link :to="`/product/category/${category.id}`">
+                        <div class="category-item clearfix" >
+                            <span class="float-left w-100 py-4 px-4"
+                                  @click="$emit('get-products-by-category', 0)">
+                                <i class="fa fa-list mr-2"></i>
+                                <span class="hidden-sm-down">All Categories</span>
+                            </span>
+                        </div>
+                        <div v-for="category in categories" class="category-item clearfix" v-if="categories.length > 0">
+                            <span class="float-left w-100 py-4 px-4"
+                                  @click="$emit('get-products-by-category', category.id)">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">{{category.category}}</span>
-                            </router-link>
+                            </span>
                         </div>
+                        <custom-spinner v-else/>
                     </div>
                     <div class="tab-pane fade" id="lifestyle" role="tabpanel">
-                        <div class="category-item py-4 px-4">
-                            <a href="#">
+                        <div class="category-item clearfix" >
+                            <span class="float-left w-100 py-4 px-4">
                                 <i class="fa fa-list mr-2"></i>
-                                <span class="hidden-sm-down">Dinning table</span>
-                            </a>
+                                <span class="hidden-sm-down">All Categories</span>
+                            </span>
                         </div>
-                        <div class="category-item py-4 px-4">
-                            <a href="#">
+                        <div class="category-item clearfix" >
+                            <span class="float-left w-100 py-4 px-4">
                                 <i class="fa fa-list mr-2"></i>
-                                <span class="hidden-sm-down">Double Sofa</span>
-                            </a>
+                                <span class="hidden-sm-down">Double sofa</span>
+                            </span>
+                        </div>
+                        <div class="category-item clearfix" >
+                            <span class="float-left w-100 py-4 px-4">
+                                <i class="fa fa-list mr-2"></i>
+                                <span class="hidden-sm-down">Kitchen</span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -51,7 +66,7 @@
 </template>
 
 <script>
-    import {get} from '../helpers/api'
+    import {get} from '../helpers/api';
 
     export default {
         data() {
@@ -60,11 +75,10 @@
             }
         },
         created() {
-            get('/api/category')
-                .then((res) => {
-                    localStorage.setItem("categories", JSON.stringify(res.data.categories));
-                    this.categories = res.data.categories
-                })
+            get('/api/category').then(({data}) => {
+                localStorage.setItem("categories", JSON.stringify(data.categories));
+                this.categories = data.categories
+            })
         }
     }
 </script>
