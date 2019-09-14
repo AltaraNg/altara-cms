@@ -20,6 +20,7 @@ export function post(url, payload) {
     	}
     })
 }
+
 // delete is reserved keyword
 export function del(url) {
     return axios({

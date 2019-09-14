@@ -85,9 +85,6 @@
         },
         methods: {
             emitGetProductsById(id) {
-
-                console.log(id);
-
                 $('.category-item').removeClass('active-category');
                 $(`.category-item[data-id=${id}]`).addClass('active-category');
                 this.$emit('get-products-by-category', id)

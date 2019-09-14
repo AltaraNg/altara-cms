@@ -31,7 +31,7 @@ class Product extends Model
             'price' => '',
             'rprice' => '',
             'user_id' => '',
-            'image' => '',
+            'image' => ''
         ];
     }
 }

@@ -11,8 +11,7 @@ class ProductsController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth:api')
-            ->except(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show']);
     }
 
     public function index()
@@ -24,12 +23,7 @@ class ProductsController extends Controller
                 return $query->select('id', 'brand');
             }])
             ->get();
-        //$brands = Brand::all();
-        return response()
-            ->json([
-                'products' => $products,
-                //'brands' => $brands
-            ]);
+        return response()->json(['products' => $products]);
 
     }
 
@@ -40,39 +34,23 @@ class ProductsController extends Controller
                 return $query->select('id', 'brand');
             }])
             ->get();
-        //$brands = Brand::all();
 
-        return response()
-            ->json([
-                'products' => $products,
-                //'brands' => $brands
-            ]);
+        return response()->json(['products' => $products]);
     }
 
     public function create()
     {
-        $form = Product::form();
-        return response()
-            ->json([
-                'form' => $form
-            ]);
+       //
     }
 
     public function edit($id, Request $request)
     {
-        $form = $request->user()->products()
-            ->findOrFail($id, [
-                'id', 'name', 'brand_id', 'category_id', 'features', 'fourty_price', 'user_id', 'twenty_price', 'popularity', 'image'
-            ]);
-        return response()
-            ->json([
-                'form' => $form
-            ]);
+        //
     }
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        /*$this->validate($request, [
             'name' => 'required|max:255',
             'brand_id' => 'required|max:255',
             'category_id' => 'required|max:255',
@@ -95,23 +73,22 @@ class ProductsController extends Controller
         $request->user()->products()
             ->save($product);
 
-
         return response()
             ->json([
                 'saved' => true,
                 'id' => $product->id,
-                'message' => 'Product Succefully Added'
-            ]);
+                'message' => 'Product Successfully Added'
+            ]);*/
     }
 
-    private function getFileName($file)
+    /*private function getFileName($file)
     {
         return str_random(32) . '.' . $file->extension();
-    }
+    }*/
 
     public function update($id, Request $request)
     {
-        $this->validate($request, [
+        /*$this->validate($request, [
             'name' => 'required|max:255',
             'brand_id' => 'required|max:255',
             'category_id' => 'required|max:255',
@@ -147,18 +124,18 @@ class ProductsController extends Controller
                 'saved' => true,
                 'id' => $product->id,
                 'message' => 'You have successfully updated product!'
-            ]);
+            ]);*/
     }
 
     public function destroy($id, Request $request)
     {
-        $product = $request->user()->products()
+        /*$product = $request->user()->products()
             ->findOrFail($id);
         File::delete(base_path('/public/images/catalog/' . $product->image));
         $product->delete();
         return response()
             ->json([
                 'deleted' => true
-            ]);
+            ]);*/
     }
 }

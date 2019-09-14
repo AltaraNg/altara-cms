@@ -4,11 +4,6 @@
     </div>
 </template>
 
-<script>
-    export default {}
-</script>
-
-
 <style>
     .sk-fading-circle {
         margin: 100px auto;
