@@ -23,18 +23,23 @@
             <div class="card-body p-0">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="appliance" role="tabpanel">
-                        <div class="category-item clearfix" >
+                        <div class="category-item clearfix active-category" data-id="0">
                             <span class="float-left w-100 py-4 px-4"
                                   @click="$emit('get-products-by-category', 0)">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">All Categories</span>
+                                <i class="fas fa-angle-double-right float-right" data-type="caret"></i>
                             </span>
                         </div>
-                        <div v-for="category in categories" class="category-item clearfix" v-if="categories.length > 0">
+                        <div v-for="category in categories"
+                             :data-id="category.id"
+                             v-if="categories.length > 0"
+                             class="category-item clearfix">
                             <span class="float-left w-100 py-4 px-4"
-                                  @click="$emit('get-products-by-category', category.id)">
+                                  @click="emitGetProductsById(category.id)">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">{{category.category}}</span>
+                                <i class="fas fa-angle-double-right float-right" data-type="caret"></i>
                             </span>
                         </div>
                         <custom-spinner v-else/>
@@ -79,6 +84,13 @@
                 localStorage.setItem("categories", JSON.stringify(data.categories));
                 this.categories = data.categories
             })
+        },
+        methods:{
+            emitGetProductsById(id){
+                $('.category-item').removeClass('active-category');
+                $(`.category-item[data-id=${id}]`).addClass('active-category');
+                this.$emit('get-products-by-category', id)
+            }
         }
     }
 </script>

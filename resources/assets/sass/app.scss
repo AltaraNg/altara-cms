@@ -21,13 +21,23 @@ html, body {
         font-weight: 400;
     }
 
-    &:hover {
+    i[data-type="caret"] {
+        display: none;
+    }
+
+    &:hover, &.active-category {
         background-color: $default-body-bg;
-        border-right: 3px solid lighten($primary-color, 70%);
+        border-left: 3px solid lighten($primary-color, 70%);
 
         span {
             color: lighten($primary-color, 20%);
             font-weight: 800;
+        }
+    }
+
+    &.active-category {
+        i[data-type="caret"] {
+            display: block;
         }
     }
 }
