@@ -35,10 +35,16 @@
                     </div>
                     <ul class="navbar-nav ml-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <router-link class="nav-link d-flex align-items-center" to="/">
+                                <i class="fas fa-home mb-1 mr-2"></i>
+                                Home <span class="sr-only">(current)</span>
+                            </router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Go to site</a>
+                            <a class="nav-link d-flex align-items-center" href="http://www.altaracredit.com">
+                                <i class="fas fa-globe-africa mb-1 mr-2"></i>
+                                Go to site
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -46,14 +52,6 @@
         </nav>
     </div>
 </template>
-
-
 <script>
-    /* import Auth from "../store/auth";
-     import {post} from "../helpers/api";
-     import Flash from "../helpers/flash";*/
-
-    export default {
-       // props: ['catalog', 'guest', 'auth'],
-    }
+    export default {}
 </script>
