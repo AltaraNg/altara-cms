@@ -19,7 +19,7 @@
                 </li>
             </ul>
         </div>
-        <div class="card shadow-sm">
+        <div class="card border-0 shadow-sm">
             <div class="card-body p-0">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="appliance" role="tabpanel">

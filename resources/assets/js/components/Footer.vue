@@ -1,7 +1,7 @@
 <template>
-    <footer class="footer bg-white shadow">
+    <footer class="footer bg-white shadow-sm mt-4">
         <div class="container">
-            <div class="row row-grid align-items-center my-md">
+            <div class="row row-grid align-items-center">
                 <div class="col-lg-6">
                     <h4 class="text-primary mb-2">Thank you for patronizing us!</h4>
                     <h6 class="font-weight-bold">Let's get in touch, call us on 08100000000.</h6>

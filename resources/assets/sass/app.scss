@@ -13,7 +13,7 @@ html, body {
 }
 
 .category-item {
-    transition: all 0.4s !important;
+    transition: all 0.4s;
 
     a {
         color: lighten($default-font-color, 20%);
@@ -28,5 +28,39 @@ html, body {
             color: lighten($primary-color, 20%);
             font-weight: 800;
         }
+    }
+}
+
+.product-card {
+    transform: translateY(0);
+    transition: transform .3s;
+
+    &:hover {
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+        transform: translateY(-1px);
+    }
+
+    .details {
+        background-color: rgba(0, 0, 0, 0.01);
+        border-top: .1rem solid rgba(0, 0, 0, 0.015);
+    }
+}
+
+.price-overview {
+    tr {
+        border-top: .1rem solid $default-body-bg;
+    }
+
+    th{
+        color: lighten($default-font-color, 25%);
+        font-weight: 400;
+    }
+
+    th, td {
+        width: calc(100 - 30%)/2;
+    }
+
+    th:nth-child(1), td:nth-child(1) {
+        width: 30%;
     }
 }
