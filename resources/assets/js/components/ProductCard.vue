@@ -4,7 +4,7 @@
         <div class="card-body details">
             <h6 class="font-weight-bold mt-2 mb-3 capitalize mx-2 px-2">
                 {{product.product.name}}
-                <span class="badge badge-success float-right">{{product.product.brand}}</span>
+                <span class="badge badge-success float-right">{{product.product.brand.brand}}</span>
             </h6>
             <div class="my-3">
                 <table class="table table-borderless price-overview">

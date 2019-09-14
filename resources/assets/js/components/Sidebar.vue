@@ -24,8 +24,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="appliance" role="tabpanel">
                         <div class="category-item clearfix active-category" data-id="0">
-                            <span class="float-left w-100 py-4 px-4"
-                                  @click="$emit('get-products-by-category', 0)">
+                            <span class="float-left w-100 py-3 px-4" @click="emitGetProductsById(0)">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">All Categories</span>
                                 <i class="fas fa-angle-double-right float-right" data-type="caret"></i>
@@ -34,9 +33,8 @@
                         <div v-for="category in categories"
                              :data-id="category.id"
                              v-if="categories.length > 0"
-                             class="category-item clearfix">
-                            <span class="float-left w-100 py-4 px-4"
-                                  @click="emitGetProductsById(category.id)">
+                             class="category-item clearfix my-1">
+                            <span class="float-left w-100 py-3 px-4" @click="emitGetProductsById(category.id)">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">{{category.category}}</span>
                                 <i class="fas fa-angle-double-right float-right" data-type="caret"></i>
@@ -45,19 +43,19 @@
                         <custom-spinner v-else/>
                     </div>
                     <div class="tab-pane fade" id="lifestyle" role="tabpanel">
-                        <div class="category-item clearfix" >
+                        <div class="category-item clearfix">
                             <span class="float-left w-100 py-4 px-4">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">All Categories</span>
                             </span>
                         </div>
-                        <div class="category-item clearfix" >
+                        <div class="category-item clearfix">
                             <span class="float-left w-100 py-4 px-4">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">Double sofa</span>
                             </span>
                         </div>
-                        <div class="category-item clearfix" >
+                        <div class="category-item clearfix">
                             <span class="float-left w-100 py-4 px-4">
                                 <i class="fa fa-list mr-2"></i>
                                 <span class="hidden-sm-down">Kitchen</span>
@@ -85,8 +83,11 @@
                 this.categories = data.categories
             })
         },
-        methods:{
-            emitGetProductsById(id){
+        methods: {
+            emitGetProductsById(id) {
+
+                console.log(id);
+
                 $('.category-item').removeClass('active-category');
                 $(`.category-item[data-id=${id}]`).addClass('active-category');
                 this.$emit('get-products-by-category', id)

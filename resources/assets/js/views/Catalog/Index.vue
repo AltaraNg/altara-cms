@@ -24,7 +24,7 @@
                                                  :src="`/images/catalog/${productOnModal.product.image}`">
                                         </div>
                                         <div class="col-md-6 content-left">
-                                            <span class="badge badge-success">{{productOnModal.product.brand}}</span>
+                                            <span class="badge badge-success">{{productOnModal.product.brand.brand}}</span>
                                             <h5 class="font-weight-bold card-text mt-2 mb-3 capitalize">
                                                 {{productOnModal.product.name}}
                                             </h5>
@@ -102,19 +102,11 @@
                 get(`/api/products/${id ? id : ''}`).then(({data}) => this.updateProductsArray(data))
             },
 
-            updateProductsArray({brands, products}) {
-                let productObjectsArray;
-                productObjectsArray = products.map(product => {
-                    brands.forEach(brand => {
-                        if (product.brand_id === brand.id) product.brand = brand.brand;
-                    });
-                    return (new Product(product));
-                });
-                this.products = productObjectsArray;
+            updateProductsArray({products}) {
+                this.products = products.map(product => new Product(product));
             },
 
             showMore(product) {
-                this.productOnModal = null;
                 this.productOnModal = product;
                 $("#display-product-modal").modal("show");
             }

@@ -5,9 +5,9 @@ require('bootstrap');
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import CustomSpinner from './components/Spinner';
+import Spinner from './components/Spinner';
 
-Vue.component('custom-spinner', CustomSpinner);
+Vue.component('custom-spinner', Spinner);
 const app = new Vue({
     el: '#root',
     template: `<app></app>`,
