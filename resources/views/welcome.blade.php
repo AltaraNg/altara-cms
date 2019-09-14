@@ -17,11 +17,10 @@
     <script>window.Laravel = {csrfToken: '{{ csrf_token() }}'}</script>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ URL::to('/') }}/css/argon.min.css">
-    <title>Altara CMS - Portal </title>
     <link rel="icon" type="image/png" href="{{ URL::to('/') }}/images/a.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
           integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <title>Altara CMS - Portal </title>
 </head>
 <body>
 <div id="root"></div>
