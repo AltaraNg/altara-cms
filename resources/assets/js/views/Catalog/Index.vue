@@ -1,7 +1,7 @@
 <template>
 <div>
     <!-- Page Content -->
-    <spinner v-if="products.length === 0"></spinner>
+    <spinner v-if="products.length === 0"/>
     <div v-if="products.length > 0" class="container-fluid">
         <div class="row">
             <sidebar></sidebar>
@@ -24,7 +24,7 @@
     <tbody>
     <tr>
     <td>20% </td>
-    
+
     <td>{{ product.twenty_price *0.2 | currency('₦') }} </td>
     <td>{{ Math.round((product.twenty_price - (0.2 * product.twenty_price)) / 12) | currency('₦') }}</td>
     </tr>
@@ -34,7 +34,7 @@
     <td>{{ Math.round((product.fourty_price - (0.4 * product.fourty_price)) / 12) | currency('₦') }}</td>
     </tr>
      </tbody>
-        
+
 </table>
                                     </div>
                                      <div class="row">
@@ -83,7 +83,7 @@
     <tbody>
     <tr>
     <td>20% </td>
-    
+
     <td>{{ viewMore.twenty_price *0.2 | currency('₦') }} </td>
     <td>{{ Math.round((viewMore.twenty_price - (0.2 * viewMore.twenty_price)) / 12) | currency('₦') }}</td>
     </tr>
@@ -93,7 +93,7 @@
     <td>{{ Math.round((viewMore.fourty_price - (0.4 * viewMore.fourty_price)) / 12) | currency('₦') }}</td>
     </tr>
      </tbody>
-        
+
 </table>
                                                         </div>
                                                     </div>
@@ -217,7 +217,7 @@ export default {
   }
 };
 </script>
-<style>
+<style>/*
 .card-text {
   font-weight: 800;
   font-size: 13px;
@@ -232,9 +232,9 @@ export default {
   margin-top: 1px;
 }
 
-/* .info:hover {
+!* .info:hover {
 
-} */
+} *!
 .content-right {
   border-right: 1px solid #ccc;
 }
@@ -246,7 +246,7 @@ export default {
   background-color: #e0f2ff;
 }
 .price {
-  /*width: 50%;*/
+  !*width: 50%;*!
   margin-top: 3px;
 }
 
@@ -344,5 +344,5 @@ export default {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1rem;
-}
+}*/
 </style>

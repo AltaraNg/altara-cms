@@ -242,7 +242,7 @@ get(`/api/products/${this.$route.params.id}`)
           }
 	}
 </script>
-<style>
+<style>/*
 .card-text {
   font-weight: 800;
   font-size: 13px;
@@ -257,9 +257,9 @@ get(`/api/products/${this.$route.params.id}`)
   margin-top: 1px;
 }
 
-/* .info:hover {
+!* .info:hover {
 
-} */
+} *!
 .content-right {
   border-right: 1px solid #ccc;
 }
@@ -271,7 +271,7 @@ get(`/api/products/${this.$route.params.id}`)
   background-color: #e0f2ff;
 }
 .price {
-  /*width: 50%;*/
+  !*width: 50%;*!
   margin-top: 3px;
 }
 
@@ -369,5 +369,5 @@ get(`/api/products/${this.$route.params.id}`)
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1rem;
-}
+}*/
 </style>

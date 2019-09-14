@@ -32,7 +32,7 @@ export default {
   methods: {}
 };
 </script>
-<style>
+<style>/*
 
 .flex-center {
   align-items: center;
@@ -70,5 +70,5 @@ export default {
 
 .m-b-md {
   margin-bottom: 30px;
-}
+}*/
 </style>

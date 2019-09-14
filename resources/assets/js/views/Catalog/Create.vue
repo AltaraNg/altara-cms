@@ -190,7 +190,7 @@
     }
 </script>
 <style>
-    .btn-file {
+    /*.btn-file {
         position: relative;
         overflow: hidden;
     }
@@ -213,5 +213,5 @@
 
     #img-upload {
         width: 100%;
-    }
+    }*/
 </style>
