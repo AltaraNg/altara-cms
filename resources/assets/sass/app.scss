@@ -1,8 +1,11 @@
 @import "./argon.scss";
 @import "./_variables";
 
+html {
+    font-size: 75%;
+}
 
-html, body {
+body {
     box-sizing: border-box;
     font-family: $default-font-family;
     height: 100vh;
@@ -52,8 +55,9 @@ html, body {
     }
 
     .details {
+        font-size: 90%;
         background-color: rgba(0, 0, 0, 0.01);
-        border-top: .1rem solid rgba(0, 0, 0, 0.015);
+        border-top: .1rem solid rgba(0, 0, 0, 0.05);
     }
 }
 

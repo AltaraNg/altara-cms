@@ -14,59 +14,59 @@ class BrandSeeder extends Seeder
     {
         //1
         $brand = new Brand();
-        $brand->brand = 'Polystar';
+        $brand->name = 'Polystar';
         $brand->save();
         //2
         $brand = new Brand();
-        $brand->brand = 'Infinix';
+        $brand->name = 'Infinix';
         $brand->save();
         //3
         $brand = new Brand();
-        $brand->brand = 'Itel';
+        $brand->name = 'Itel';
         $brand->save();
         //4
         $brand = new Brand();
-        $brand->brand = 'Gionee';
+        $brand->name = 'Gionee';
         $brand->save();
         //5
         $brand = new Brand();
-        $brand->brand = 'Elepaq';
+        $brand->name = 'Elepaq';
         $brand->save();
         //6
         $brand = new Brand();
-        $brand->brand = 'Haier Thermocool';
+        $brand->name = 'Haier Thermocool';
         $brand->save();
         //7
         $brand = new Brand();
-        $brand->brand = 'Century';
+        $brand->name = 'Century';
         $brand->save();
         //8
         $brand = new Brand();
-        $brand->brand = 'Tiger';
+        $brand->name = 'Tiger';
         $brand->save();
         //9
         $brand = new Brand();
-        $brand->brand = 'Sumo Premium';
+        $brand->name = 'Sumo Premium';
         $brand->save();
         //10
         $brand = new Brand();
-        $brand->brand = 'Tecno';
+        $brand->name = 'Tecno';
         $brand->save();
         //11
         $brand = new Brand();
-        $brand->brand = 'Fero';
+        $brand->name = 'Fero';
         $brand->save();
         //12
         $brand = new Brand();
-        $brand->brand = 'Vigitab';
+        $brand->name = 'Vigitab';
         $brand->save();
         //13
         $brand = new Brand();
-        $brand->brand = 'Ox';
+        $brand->name = 'Ox';
         $brand->save();
         //14
         $brand = new Brand();
-        $brand->brand = 'Hp';
+        $brand->name = 'Hp';
         $brand->save();
         
     }

@@ -20,7 +20,7 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
-    public static function form()
+   /* public static function form()
     {
         return [
             'name' => '',
@@ -33,5 +33,5 @@ class Product extends Model
             'user_id' => '',
             'image' => ''
         ];
-    }
+    }*/
 }

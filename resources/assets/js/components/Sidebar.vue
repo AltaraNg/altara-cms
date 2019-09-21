@@ -36,7 +36,7 @@
                              class="category-item clearfix my-1">
                             <span class="float-left w-100 py-3 px-4" @click="emitGetProductsById(category.id)">
                                 <i class="fa fa-list mr-2"></i>
-                                <span class="hidden-sm-down">{{category.category}}</span>
+                                <span class="hidden-sm-down">{{category.name}}</span>
                                 <i class="fas fa-angle-double-right float-right" data-type="caret"></i>
                             </span>
                         </div>

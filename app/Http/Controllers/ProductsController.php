@@ -20,7 +20,7 @@ class ProductsController extends Controller
             ->where('popularity', 3)
             ->take(12)
             ->with(['brand' => function ($query) {
-                return $query->select('id', 'brand');
+                return $query->select('id', 'name');
             }])
             ->get();
         return response()->json(['products' => $products]);
@@ -31,7 +31,7 @@ class ProductsController extends Controller
     {
         $products = Product::where('category_id', $id)
             ->with(['brand' => function ($query) {
-                return $query->select('id', 'brand');
+                return $query->select('id', 'name');
             }])
             ->get();
 
