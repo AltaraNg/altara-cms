@@ -25,7 +25,7 @@
                                     <div class="row">
                                         <div class="col-md-5 content-right d-flex justify-content-center align-items-center">
                                             <img class="img-fluid rounded" v-if="productOnModal.product.img_url"
-                                                 :src="`/images/catalog/${productOnModal.product.img_url}`">
+                                                 :src="AWS_IMAGE_URL + productOnModal.product.img_url">
                                         </div>
                                         <div class="col-md-6 content-left">
                                             <span class="badge badge-success">{{productOnModal.product.brand.name}}</span>
@@ -57,12 +57,16 @@
                                                             {{productOnModal.priceSummary.downPayment | currency('₦')}}
                                                         </td>
                                                         <td class="text-right align-middle pr-0">
-                                                            {{productOnModal.priceSummary.repaymentPrice | currency('₦')}}
+                                                            {{productOnModal.priceSummary.repaymentPrice |
+                                                            currency('₦')}}
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3" class="text-center text-light font-weight-lighter my-2">
-                                                            <small>NB: The price above is for {{salesPlan}}% 6 months plan.</small>
+                                                        <td colspan="3"
+                                                            class="text-center text-light font-weight-lighter my-2">
+                                                            <small>NB: The price above is for {{salesPlan}}% 6 months
+                                                                plan.
+                                                            </small>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -104,7 +108,8 @@
                 products: [],
                 salesPlan: 40,
                 productOnModal: null,
-                salesPlans: PriceCalculator.salePlans()
+                salesPlans: PriceCalculator.salePlans(),
+                AWS_IMAGE_URL: "https://s3.eu-west-2.amazonaws.com/altara-one/product/"
             };
         },
         created() {
@@ -127,7 +132,7 @@
             }
         },
         watch: {
-            'salesPlan': function(newSalesPlan){
+            'salesPlan': function (newSalesPlan) {
                 this.productOnModal.calcPriceSummary(newSalesPlan);
             }
         }
