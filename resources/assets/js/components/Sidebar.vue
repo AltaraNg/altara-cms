@@ -19,7 +19,7 @@
                 </li>
             </ul>
         </div>
-        <div class="card border-0 shadow-sm">
+        <div class="card border-0 shadow-sm mb-xlg">
             <div class="card-body p-0">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="appliance" role="tabpanel">
@@ -70,6 +70,7 @@
 
 <script>
     import {get} from '../helpers/api';
+    import {EventBus} from "../helpers/event-bus";
 
     export default {
         data() {
@@ -78,17 +79,36 @@
             }
         },
         created() {
-            get('/api/category').then(({data}) => {
-                localStorage.setItem("categories", JSON.stringify(data.categories));
-                this.categories = data.categories
-            })
+            this.getCategories();
+            this.updateClassOnProductAvailability();
         },
         methods: {
             emitGetProductsById(id) {
                 $('.category-item').removeClass('active-category');
                 $(`.category-item[data-id=${id}]`).addClass('active-category');
                 this.$emit('get-products-by-category', id)
+            },
+
+            getCategories() {
+                get('/api/category').then(({data}) => this.setCategories(data));
+            },
+
+            setCategories({categories}) {
+                localStorage.setItem("categories", JSON.stringify(categories));
+                this.categories = categories
+            },
+
+            updateClassOnProductAvailability() {
+                let sideNav = $('div.card'), className = 'mb-xlg';
+                EventBus.$on('isProductAvailable', isProductAvailable =>
+                    isProductAvailable ? sideNav.removeClass(className) : sideNav.addClass(className));
             }
         }
     }
 </script>
+
+<style scoped>
+    .mb-xlg {
+        margin-bottom: 20rem;
+    }
+</style>

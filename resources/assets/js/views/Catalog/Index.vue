@@ -97,6 +97,7 @@
 <script>
     import {get} from "../../helpers/api";
     import {Product} from '../../helpers/Product';
+    import {EventBus} from "../../helpers/event-bus";
     import Sidebar from "../../components/Sidebar.vue";
     import ProductCard from "../../components/ProductCard";
     import {PriceCalculator} from '../../helpers/PriceCalculator';
@@ -134,7 +135,9 @@
         watch: {
             'salesPlan': function (newSalesPlan) {
                 this.productOnModal.calcPriceSummary(newSalesPlan);
-            }
+            },
+
+            'products': newProducts => EventBus.$emit('isProductAvailable', !!(newProducts.length > 0))
         }
     };
 </script>

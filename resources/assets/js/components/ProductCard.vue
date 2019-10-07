@@ -39,7 +39,7 @@
                 </tbody>
             </table>
             <div class="col-md-12 d-flex justify-content-center">
-                <button @click="$emit('view-details', product)" class="btn btn-warning py-2">view details</button>
+                <button @click="$emit('view-details', product)" class="btn btn-default bg-default py-2">view details</button>
             </div>
         </div>
     </div>
