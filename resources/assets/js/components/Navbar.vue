@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-default mb-5">
             <div class="container">
-                <a class="navbar-brand" href="#">Altara</a>
+                <router-link to="/" class="navbar-brand">Altara</router-link>
                 <!-- <div class="logo navbar-brand">
                      <a href="http://www.altaracredit.com/" class="photo logo-mini">
                          <img src="/images/altara_logo.png" height="38" alt="altara-logo">

@@ -6,8 +6,8 @@
     </div>
 </template>
 <script>
-    import AppFooter from './components/Footer'
-    import NavBar from './components/Navbar'
+    import NavBar from './components/Navbar';
+    import AppFooter from './components/Footer';
 
     export default {
         components: {AppFooter, NavBar}

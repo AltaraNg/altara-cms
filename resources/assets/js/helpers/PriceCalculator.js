@@ -1,5 +1,4 @@
-export class PriceCalculator {
-
+export default class PriceCalculator {
     static salePlans() {
         return [
             {id: 1, name: "0%", percent: 0},

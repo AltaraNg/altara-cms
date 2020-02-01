@@ -78,10 +78,12 @@
                 categories: []
             }
         },
+
         created() {
             this.getCategories();
             this.updateClassOnProductAvailability();
         },
+
         methods: {
             emitGetProductsById(id) {
                 $('.category-item').removeClass('active-category');
