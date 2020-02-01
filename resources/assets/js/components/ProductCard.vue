@@ -1,8 +1,6 @@
 <template>
     <div class="card shadow-sm product-card border-0">
-        <img class="card-img-top" v-if="product.product.img_url"
-             :src="AWS_IMAGE_URL + product.product.img_url">
-        <!--:src="`/images/catalog/${product.product.img_url}`">-->
+        <img class="card-img-top" v-if="product.product.img_url" :src="GET_IMAGE_PATH + product.product.img_url">
         <div class="card-body details px-4 py-3">
             <h6 class="font-weight-bold mt-0 mb-0 capitalize mx-1">
                 {{product.product.name}}
@@ -39,25 +37,33 @@
                 </tbody>
             </table>
             <div class="col-md-12 d-flex justify-content-center">
-                <button @click="$emit('view-details', product)" class="btn btn-default bg-default py-2">view details</button>
+                <button @click="$emit('view-details', product)" class="btn btn-default bg-default py-2">view details
+                </button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+
+    import {mapGetters} from 'vuex';
+    import Types from "../store/types";
+
     export default {
         props: ['product', 'salesPlans'],
+
         data() {
-            return {
-                salesPlan: 40,
-                AWS_IMAGE_URL: "https://s3.eu-west-2.amazonaws.com/altara-one/product/"
-            }
+            return {salesPlan: 40}
         },
+
         watch: {
             'salesPlan': function (newSalesPlan) {
                 this.product.calcPriceSummary(newSalesPlan);
             }
+        },
+
+        computed: {
+            ...mapGetters([Types.GET_IMAGE_PATH])
         }
     }
 </script>

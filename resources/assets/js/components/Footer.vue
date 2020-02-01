@@ -7,7 +7,7 @@
                     <h6 class="font-weight-bold">For more inquiries call us on: 08150479425. Buy now, pay small
                         small!</h6>
                 </div>
-                <div class="col-lg-6 text-lg-center btn-wrapper">
+                <!--<div class="col-lg-6 text-lg-center btn-wrapper">
                     <a target="_blank" href="javascript:"
                        class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip"
                        data-original-title="Like us">
@@ -18,7 +18,7 @@
                        data-original-title="Follow us">
                         <i class="fab fa-google"></i>
                     </a>
-                </div>
+                </div>-->
             </div>
             <hr>
             <div class="row align-items-center justify-content-md-between">

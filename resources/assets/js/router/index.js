@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Catalog from '../views/Catalog/Index.vue'
-import NotFound from '../views/NotFound.vue'
-import Vue2Filters from 'vue2-filters'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Vue2Filters from 'vue2-filters';
+import NotFound from '../views/NotFound.vue';
+import Catalog from '../views/Catalog/Index.vue';
 
 Vue.use(Vue2Filters);
 Vue.use(VueRouter);
@@ -16,4 +16,4 @@ const router = new VueRouter({
     ]
 });
 
-export default router
+export default router;

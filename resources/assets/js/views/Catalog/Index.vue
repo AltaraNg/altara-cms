@@ -6,10 +6,10 @@
                 <div class="row" v-if="products.length > 0">
                     <div class="col-lg-4 col-sm-6 mb-4 pb-3" v-for="product in products">
                         <product-card
-                                :product="product"
-                                :sales-plans="salesPlans"
-                                @view-details="showMore"
-                                :key="product.product.id"/>
+                            :product="product"
+                            :sales-plans="salesPlans"
+                            @view-details="showMore"
+                            :key="product.product.id"/>
                     </div>
                     <div class="modal fade" id="display-product-modal" tabindex="-1" role="dialog"
                          aria-labelledby="modal-default" aria-hidden="true">
@@ -23,12 +23,14 @@
                                 </div>
                                 <div class="modal-body" v-if="productOnModal">
                                     <div class="row">
-                                        <div class="col-md-5 content-right d-flex justify-content-center align-items-center">
+                                        <div
+                                            class="col-md-5 content-right d-flex justify-content-center align-items-center">
                                             <img class="img-fluid rounded" v-if="productOnModal.product.img_url"
                                                  :src="AWS_IMAGE_URL + productOnModal.product.img_url">
                                         </div>
                                         <div class="col-md-6 content-left">
-                                            <span class="badge badge-success">{{productOnModal.product.brand.name}}</span>
+                                            <span
+                                                class="badge badge-success">{{productOnModal.product.brand.name}}</span>
                                             <h5 class="font-weight-bold card-text mt-2 mb-3 capitalize">
                                                 {{productOnModal.product.name}}
                                             </h5>
@@ -43,8 +45,9 @@
                                                     <tr>
                                                         <td class="pl-0 text-left">
                                                             <div class="form-group mb-0">
-                                                                <select class="custom-select form-control form-control-alternative form-control-sm"
-                                                                        v-model="salesPlan">
+                                                                <select
+                                                                    class="custom-select form-control form-control-alternative form-control-sm"
+                                                                    v-model="salesPlan">
                                                                     <option selected disabled>select plan</option>
                                                                     <option :value="salesPlan.percent"
                                                                             v-for="salesPlan in salesPlans">
@@ -96,14 +99,15 @@
 
 <script>
     import {get} from "../../helpers/api";
-    import {Product} from '../../helpers/Product';
+    import Product from '../../helpers/Product';
     import {EventBus} from "../../helpers/event-bus";
     import Sidebar from "../../components/Sidebar.vue";
     import ProductCard from "../../components/ProductCard";
-    import {PriceCalculator} from '../../helpers/PriceCalculator';
+    import PriceCalculator from '../../helpers/PriceCalculator';
 
     export default {
         components: {Sidebar, ProductCard},
+
         data() {
             return {
                 products: [],
@@ -113,9 +117,11 @@
                 AWS_IMAGE_URL: "https://s3.eu-west-2.amazonaws.com/altara-one/product/"
             };
         },
+
         created() {
             get("/api/products").then(({data}) => this.updateProductsArray(data));
         },
+
         methods: {
             getProductsByCategory(id) {
                 this.products = [];
@@ -132,12 +138,13 @@
                 $("#display-product-modal").modal("show");
             }
         },
+
         watch: {
             'salesPlan': function (newSalesPlan) {
                 this.productOnModal.calcPriceSummary(newSalesPlan);
             },
 
-            'products': newProducts => EventBus.$emit('isProductAvailable', !!(newProducts.length > 0))
+            'products': newProducts => EventBus.$emit('isProductAvailable', newProducts.length > 0)
         }
     };
 </script>

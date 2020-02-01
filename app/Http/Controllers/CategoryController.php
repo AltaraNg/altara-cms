@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Brand;
 
 class CategoryController extends Controller
 {
