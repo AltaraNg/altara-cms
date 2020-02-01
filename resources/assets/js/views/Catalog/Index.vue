@@ -1,348 +1,150 @@
 <template>
-<div>
-    <!-- Page Content -->
-    <spinner v-if="products.length === 0"></spinner>
-    <div v-if="products.length > 0" class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-            <sidebar></sidebar>
+            <sidebar @get-products-by-category="getProductsByCategory"/>
             <div class="col-md-9">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 portfolio-item" v-for="product in products">
-                        <div class="card h-100">
-                                <img class="card-img-top" :src="`/images/catalog/${product.image}`" v-if="product.image">
-                                <div class="card-body">
-                                    <h4 class="card-text">
-                                        {{product.name}}  <span style=" float:right;font-size:12px;color:#777777"> {{product.brand}}</span>
-                                    </h4>
-                                    <div class="info" style="border: 1px solid #E1E1E1;border-radius:10px;">
-                                          <table id="" style="font-size:12px;" class="table  ">
-                   <thead>
-                     <th>Plan</th>
-                     <th>First Payment</th>
-                      <th>Repayment</th>
-                   </thead>
-    <tbody>
-    <tr>
-    <td>20% </td>
-    
-    <td>{{ product.twenty_price *0.2 | currency('₦') }} </td>
-    <td>{{ Math.round((product.twenty_price - (0.2 * product.twenty_price)) / 12) | currency('₦') }}</td>
-    </tr>
-    <tr>
-    <td>40%</td>
-    <td>{{ product.fourty_price *0.4 | currency('₦') }}</td>
-    <td>{{ Math.round((product.fourty_price - (0.4 * product.fourty_price)) / 12) | currency('₦') }}</td>
-    </tr>
-     </tbody>
-        
-</table>
-                                    </div>
-                                     <div class="row">
-                                         <div style="margin-top:10px;" class="col-md-12 text-center">
-<button @click="showMore(product)" data-toggle="modal" class="btn btn-small btn-primary btn-front" data-target="#myModal1">More details</button>
-                                         </div>
-                                    </div>
-
-
-                                </div>
-
-                        </div>
+                <div class="row" v-if="products.length > 0">
+                    <div class="col-lg-4 col-sm-6 mb-4 pb-3" v-for="product in products">
+                        <product-card
+                            :product="product"
+                            :sales-plans="salesPlans"
+                            @view-details="showMore"
+                            :key="product.product.id"/>
                     </div>
-
-                     <!-- Mini Modal -->
-                    <div class="modal fade modal modal-primary" ref="vuemodal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
+                    <div class="modal fade" id="display-product-modal" tabindex="-1" role="dialog"
+                         aria-labelledby="modal-default" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                             <div class="modal-content">
-                                <div class="modal-header justify-content-center">
-                                    <div class="modal-profile">
-                                        <i class="nc-icon nc-bulb-63"></i>
-                                    </div>
+                                <div class="modal-header">
+                                    <h6 class="modal-title" id="modal-title-default">Product Details</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="container-fluid">
-                                            <!-- Project One -->
-                                            <div class="row">
-                                                <div class="col-md-5 content-right">
-                                                       <img class="img-fluid rounded mb-3 mb-md-0" :src="`/images/catalog/${viewMore.image}`" v-if="viewMore.image">
-
-
-                                                </div>
-                                                <div class="col-md-6 content-left">
-                                                    <div class="row">
-                                                        <h3>{{viewMore.name}}  <span style=" float:right;font-size:16px;color:#777777"> {{viewMore.brand}}</span> </h3>
-                                                    </div>
-<hr>
-                                                    <div class="row">
-                                                        <div class="info col-md-12">
-                                                              <table id="" style="font-size:16px;" class="table  ">
-                   <thead>
-                     <th>Plan</th>
-                     <th>First Payment</th>
-                      <th>Repayment</th>
-                   </thead>
-    <tbody>
-    <tr>
-    <td>20% </td>
-    
-    <td>{{ viewMore.twenty_price *0.2 | currency('₦') }} </td>
-    <td>{{ Math.round((viewMore.twenty_price - (0.2 * viewMore.twenty_price)) / 12) | currency('₦') }}</td>
-    </tr>
-    <tr>
-    <td>40%</td>
-    <td>{{ viewMore.fourty_price *0.4 | currency('₦') }}</td>
-    <td>{{ Math.round((viewMore.fourty_price - (0.4 * viewMore.fourty_price)) / 12) | currency('₦') }}</td>
-    </tr>
-     </tbody>
-        
-</table>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <h4>Product Specification</h4> <br>
-                                                        <p>{{viewMore.features}}</p>
-                                                    </div>
-                                                    <hr>
-                                            </div>
-                                            <!-- /.row -->
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
+                                <div class="modal-body" v-if="productOnModal">
                                     <div class="row">
-                                          <div class="col-md-4" v-if=" authState.user_id">
-                                              <router-link :to="`/product/${viewMore.id}/edit`" data-dismiss="modal" class="btn btn-link btn-simple">
-                                              <i class="fa fa-undo"></i> &nbsp;Update
-						                        </router-link>|
-                                               <button  type="button" class="btn btn-link btn-simple" data-dismiss="modal" @click="remove" :disabled="isRemoving"><i class="fa fa-trash"></i> &nbsp; Delete </button> |
+                                        <div
+                                            class="col-md-5 content-right d-flex justify-content-center align-items-center">
+                                            <img class="img-fluid rounded" v-if="productOnModal.product.img_url"
+                                                 :src="AWS_IMAGE_URL + productOnModal.product.img_url">
                                         </div>
-                                        <div class="col-md-2">
-                                            <button type="button" class="btn btn-link btn-simple" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Close </button>
+                                        <div class="col-md-6 content-left">
+                                            <span
+                                                class="badge badge-success">{{productOnModal.product.brand.name}}</span>
+                                            <h5 class="font-weight-bold card-text mt-2 mb-3 capitalize">
+                                                {{productOnModal.product.name}}
+                                            </h5>
+                                            <div class="mt-3 mb-4">
+                                                <table class="table table-borderless price-overview">
+                                                    <thead>
+                                                    <th class="pl-0">Plan</th>
+                                                    <th class="text-center">Down Payment</th>
+                                                    <th class="text-right pr-0">Repayment</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="pl-0 text-left">
+                                                            <div class="form-group mb-0">
+                                                                <select
+                                                                    class="custom-select form-control form-control-alternative form-control-sm"
+                                                                    v-model="salesPlan">
+                                                                    <option selected disabled>select plan</option>
+                                                                    <option :value="salesPlan.percent"
+                                                                            v-for="salesPlan in salesPlans">
+                                                                        {{salesPlan.name}}
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center align-middle">
+                                                            {{productOnModal.priceSummary.downPayment | currency('₦')}}
+                                                        </td>
+                                                        <td class="text-right align-middle pr-0">
+                                                            {{productOnModal.priceSummary.repaymentPrice |
+                                                            currency('₦')}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3"
+                                                            class="text-center text-light font-weight-lighter my-2">
+                                                            <small>NB: The price above is for {{salesPlan}}% 6 months
+                                                                plan.
+                                                            </small>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <h5 class="font-weight-bold mt-2 mb-3 capitalize">
+                                                Product Specification
+                                            </h5>
+                                            <p>{{productOnModal.product.features}}</p>
                                         </div>
-                                        <div class="col-md-6">
-<div class="footer">
-To buy this product, Kindly visit any Altara Credit Office closest to you, or
-Call Us : <a href="tel:08150479425" style="text-decoration:none"> 08150479425</a> for more enquiries
-                                                    </div>
-                                        </div>
-
                                     </div>
-
+                                </div>
+                                <div class="modal-footer py-2">
+                                    <button type="button" class="btn btn-link ml-auto" data-dismiss="modal">
+                                        Close
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--  End Modal -->
                 </div>
-
+                <custom-spinner v-else/>
             </div>
         </div>
-        <hr>
     </div>
-    <!-- /.container -->
-</div>
 </template>
 
 <script>
-import Spinner from "../../components/Spinner.vue";
-import Auth from "../../store/auth";
-import { get, del } from "../../helpers/api";
-import Sidebar from "../../components/Sidebar.vue";
-export default {
-  components: {
-    Sidebar,
-    Spinner
-  },
-  data() {
-    return {
-      authState: Auth.state,
-      isRemoving: false,
-      products: [],
-      viewMore: {
-        brand_id: null,
-        category_id: null,
-        created_at: null,
-        features: null,
-        id: null,
-        image: null,
-        name: null,
-        fourty_price: null,
-        twenty_price: null,
-        updated_at: null,
-        user_id: null,
-        brand: null
-      }
-    };
-  },
-  created() {
-    get("/api/products").then(res => {
-      let p = res.data.products;
-      let b = res.data.brands;
-      p.forEach(element =>
-        b.forEach(element2 => {
-          if (element.brand_id === element2.id) {
-            element.brand = element2.brand;
-          }
-        })
-      );
-      this.products = p;
-      console.log(this.products);
-    });
-  },
-  methods: {
-    showMore(productData) {
-      this.viewMore.brand_id = productData.brand_id;
-      this.viewMore.category_id = productData.category_id;
-      this.viewMore.created_at = productData.created_at;
-      this.viewMore.features = productData.features;
-      this.viewMore.id = productData.id;
-      this.viewMore.image = productData.image;
-      this.viewMore.name = productData.name;
-      this.viewMore.fourty_price = productData.fourty_price;
-      this.viewMore.twenty_price = productData.twenty_price;
-      this.viewMore.updated_at = productData.updated_at;
-      this.viewMore.user_id = productData.user_id;
-      this.viewMore.brand = productData.brand;
-    },
-    remove() {
-      this.isRemoving = false;
-      del(`/api/products/${this.$route.params.id}`).then(res => {
-        if (res.data.deleted) {
-          Flash.setSuccess("You have successfully deleted Product!");
-          this.$router.push("/");
+    import {get} from "../../helpers/api";
+    import Product from '../../helpers/Product';
+    import {EventBus} from "../../helpers/event-bus";
+    import Sidebar from "../../components/Sidebar.vue";
+    import ProductCard from "../../components/ProductCard";
+    import PriceCalculator from '../../helpers/PriceCalculator';
+
+    export default {
+        components: {Sidebar, ProductCard},
+
+        data() {
+            return {
+                products: [],
+                salesPlan: 40,
+                productOnModal: null,
+                salesPlans: PriceCalculator.salePlans(),
+                AWS_IMAGE_URL: "https://s3.eu-west-2.amazonaws.com/altara-one/product/"
+            };
+        },
+
+        created() {
+            get("/api/products").then(({data}) => this.updateProductsArray(data));
+        },
+
+        methods: {
+            getProductsByCategory(id) {
+                this.products = [];
+                get(`/api/products/${id ? id : ''}`).then(({data}) => this.updateProductsArray(data))
+            },
+
+            updateProductsArray({products}) {
+                this.products = products.map(product => new Product(product));
+            },
+
+            showMore(product) {
+                this.salesPlan = 40;
+                this.productOnModal = product;
+                $("#display-product-modal").modal("show");
+            }
+        },
+
+        watch: {
+            'salesPlan': function (newSalesPlan) {
+                this.productOnModal.calcPriceSummary(newSalesPlan);
+            },
+
+            'products': newProducts => EventBus.$emit('isProductAvailable', newProducts.length > 0)
         }
-      });
-    }
-  }
-};
+    };
 </script>
-<style>
-.card-text {
-  font-weight: 800;
-  font-size: 13px;
-  line-height: 17px;
-}
-.card-text h4 {
-  text-transform: capitalize;
-}
-.info {
-  padding: 5px;
-  border-radius: 0 0 5px 5px;
-  margin-top: 1px;
-}
-
-/* .info:hover {
-
-} */
-.content-right {
-  border-right: 1px solid #ccc;
-}
-.content-left {
-  margin-left: 10px;
-}
-
-.card-body:hover {
-  background-color: #e0f2ff;
-}
-.price {
-  /*width: 50%;*/
-  margin-top: 3px;
-}
-
-.price h5 {
-  margin: 0;
-  font-size: 13px;
-}
-
-.tag-price h5 {
-  margin: 0;
-  font-size: 12px;
-  font-weight: normal;
-}
-
-.view-more-price h5 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.view-more-tag-price h5 {
-  margin: 0;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.price-text-color {
-  color: #003366;
-}
-.footer {
-  background-color: #003366;
-  color: #fff;
-  font-size: 12px;
-  padding: 5px;
-}
-.separator {
-  border-top: 1px solid #e1e1e1;
-}
-
-.clear-left {
-  clear: left;
-}
-
-.separator p {
-  line-height: 20px;
-  margin-bottom: 0;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.separator p i {
-  margin-right: 5px;
-}
-.btn-add {
-  width: 50%;
-  float: left;
-}
-
-.btn-add {
-  border-right: 1px solid #e1e1e1;
-}
-
-.btn-details {
-  width: 50%;
-  float: left;
-  padding-left: 10px;
-}
-.modal-lg {
-  max-width: 80%;
-}
-.table td,
-.table th {
-  padding: 0.2rem;
-  vertical-align: top;
-  border-top: 1px solid #e9ecef;
-}
-.btn-front {
-  display: inline-block;
-  font-weight: 300;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.75rem;
-  line-height: 1.25;
-  border-radius: 0.25rem;
-  transition: all 0.15s ease-in-out;
-}
-.card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 1rem;
-}
-</style>

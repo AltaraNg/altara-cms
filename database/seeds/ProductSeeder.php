@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Product;
+use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
 {
@@ -23,12 +23,13 @@ class ProductSeeder extends Seeder
         100% HFC Free & FCKW Free,
         fast freezing function
         ";
-        $product->twenty_price = "115700";
-        $product->fourty_price = "110000";
-        $product->image = "polystar-fridge-3-medium.png";
+        $product->retail_price = "115700";
+        $product->img_url = "polystar-fridge-3-medium.png";
         $product->user_id = 1;
         $product->category_id = 1;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //2
         $product = new Product();
@@ -41,12 +42,14 @@ class ProductSeeder extends Seeder
         100% HFC free & FCKW free,
         Manual defrost
         ";
-        $product->twenty_price = "112600";
-        $product->fourty_price = "106300";
-        $product->image = "polystar-fridge-4-medium.png";
+        $product->retail_price = "112600";
+        // = "106300";
+        $product->img_url = "polystar-fridge-4-medium.png";
         $product->user_id = 2;
         $product->category_id = 1;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //3
         $product = new Product();
@@ -59,12 +62,14 @@ class ProductSeeder extends Seeder
         Fast freezing function,
         Fully tropicalised
         ";
-        $product->twenty_price = "103700";
-        $product->fourty_price = "98300";
-        $product->image = "polystar-fridge-6-medium.png";
+        $product->retail_price = "103700";
+        // = "98300";
+        $product->img_url = "polystar-fridge-6-medium.png";
         $product->user_id = 1;
         $product->category_id = 1;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //4
         $product = new Product();
@@ -77,12 +82,14 @@ class ProductSeeder extends Seeder
         Fast freezing function,
         Fully tropicalised
         ";
-        $product->twenty_price = "87100";
-        $product->fourty_price = "82300";
-        $product->image = "polystar-fridge-7-medium.png";
+        $product->retail_price = "87100";
+        // = "82300";
+        $product->img_url = "polystar-fridge-7-medium.png";
         $product->user_id = 1;
         $product->category_id = 1;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //5
         $product = new Product();
@@ -103,12 +110,14 @@ class ProductSeeder extends Seeder
         Removable Storage Basket,
         Low Voltage Technology
         ";
-        $product->twenty_price = "141200";
-        $product->fourty_price = "134000";
-        $product->image = "polystar-fridge-8-medium.png";
+        $product->retail_price = "141200";
+        // = "134000";
+        $product->img_url = "polystar-fridge-8-medium.png";
         $product->user_id = 1;
         $product->category_id = 1;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //6
         $product = new Product();
@@ -122,17 +131,19 @@ class ProductSeeder extends Seeder
         100% HFC free & FCKW free,
         Fast freezing function
         ";
-        $product->twenty_price = "204100";
-        $product->fourty_price = "192400";
-        $product->image = "polystar-fridge-9-medium.png";
+        $product->retail_price = "204100";
+        // = "192400";
+        $product->img_url = "polystar-fridge-9-medium.png";
         $product->user_id = 1;
         $product->category_id = 1;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //7
-        
+
         //8
-        
+
         //9
         $product = new Product();
         $product->name = 'Polystar 261L Refrigerator';
@@ -147,12 +158,14 @@ class ProductSeeder extends Seeder
         Interior light,
         Easy rolling wheels
         ";
-        $product->twenty_price = "129200";
-        $product->fourty_price = "122300";
-        $product->image = "midea-fridge-2-medium.png";
+        $product->retail_price = "129200";
+        // = "122300";
+        $product->img_url = "midea-fridge-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 2;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //10
         $product = new Product();
@@ -165,12 +178,14 @@ class ProductSeeder extends Seeder
         100% HFC Free & FCKW Free,
         High density foaming for energy saving
         ";
-        $product->twenty_price = "82700";
-        $product->fourty_price = "78400";
-        $product->image = "polystar-fridge-10-medium.png";
+        $product->retail_price = "82700";
+        // = "78400";
+        $product->img_url = "polystar-fridge-10-medium.png";
         $product->user_id = 1;
         $product->category_id = 2;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //11
         $product = new Product();
@@ -179,12 +194,14 @@ class ProductSeeder extends Seeder
         $product->features = "
         size: 78LB
         ";
-        $product->twenty_price = "48200";
-        $product->fourty_price = "46100";
-        $product->image = "polystar-fridge-1-medium.png";
+        $product->retail_price = "48200";
+        // = "46100";
+        $product->img_url = "polystar-fridge-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 2;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //12
         $product = new Product();
@@ -197,12 +214,14 @@ class ProductSeeder extends Seeder
         CFC free,
         Outside condenser
         ";
-        $product->twenty_price = "64700";
-        $product->fourty_price = "60700";
-        $product->image = "polystar-fridge-11-medium.png";
+        $product->retail_price = "64700";
+        // = "60700";
+        $product->img_url = "polystar-fridge-11-medium.png";
         $product->user_id = 1;
         $product->category_id = 2;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //13
         $product = new Product();
@@ -216,12 +235,14 @@ class ProductSeeder extends Seeder
         Outside condenser,
         CFC Free
         ";
-        $product->twenty_price = "61700";
-        $product->fourty_price = "58400";
-        $product->image = "polystar-fridge-12-medium.png";
+        $product->retail_price = "61700";
+        // = "58400";
+        $product->img_url = "polystar-fridge-12-medium.png";
         $product->user_id = 1;
         $product->category_id = 2;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //14
         $product = new Product();
@@ -234,12 +255,14 @@ class ProductSeeder extends Seeder
         100% HFC free & FCKW free,
         Fast freezing function
         ";
-        $product->twenty_price = "60100";
-        $product->fourty_price = "56500";
-        $product->image = "polystar-fridge-2-medium.png";
+        $product->retail_price = "60100";
+        // = "56500";
+        $product->img_url = "polystar-fridge-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 2;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //15
         $product = new Product();
@@ -248,12 +271,14 @@ class ProductSeeder extends Seeder
         $product->features = "
         size: 10KG
         ";
-        $product->twenty_price = "85600";
-        $product->fourty_price = "80500";
-        $product->image = "polystar-washin-m-2-medium.png";
+        $product->retail_price = "85600";
+        // = "80500";
+        $product->img_url = "polystar-washin-m-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 3;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //16
         $product = new Product();
@@ -262,12 +287,14 @@ class ProductSeeder extends Seeder
         $product->features = "
         size: 6.5KG
         ";
-        $product->twenty_price = "40600";
-        $product->fourty_price = "38400";
-        $product->image = "polystar-washin-m-3-medium.png";
+        $product->retail_price = "40600";
+        // = "38400";
+        $product->img_url = "polystar-washin-m-3-medium.png";
         $product->user_id = 1;
         $product->category_id = 3;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //17
         $product = new Product();
@@ -284,12 +311,14 @@ class ProductSeeder extends Seeder
         Easy to Operate,
         Washing Capacity 8KG Spin Capacity 6G
         ";
-        $product->twenty_price = "73600";
-        $product->fourty_price = "70000";
-        $product->image = "century-washing-m-1-medium.png";
+        $product->retail_price = "73600";
+        // = "70000";
+        $product->img_url = "century-washing-m-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 3;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //18
         $product = new Product();
@@ -298,12 +327,14 @@ class ProductSeeder extends Seeder
         $product->features = "
         Capacity: 3.5KVA
         ";
-        $product->twenty_price = "84100";
-        $product->fourty_price = "78700";
-        $product->image = "elepaq-generator-medium.png";
+        $product->retail_price = "84100";
+        // = "78700";
+        $product->img_url = "elepaq-generator-medium.png";
         $product->user_id = 1;
         $product->category_id = 4;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //19
         $product = new Product();
@@ -312,12 +343,14 @@ class ProductSeeder extends Seeder
         $product->features = "
         Capacity: 2.2KVA
         ";
-        $product->twenty_price = "76700";
-        $product->fourty_price = "72500";
-        $product->image = "elepaq-generator-medium.png";
+        $product->retail_price = "76700";
+        // = "72500";
+        $product->img_url = "elepaq-generator-medium.png";
         $product->user_id = 1;
         $product->category_id = 4;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //20
         $product = new Product();
@@ -326,12 +359,14 @@ class ProductSeeder extends Seeder
         $product->features = "
         Capacity: 1.2KVA
         ";
-        $product->twenty_price = "39100";
-        $product->fourty_price = "36600";
-        $product->image = "tiger-generator-1-medium.png";
+        $product->retail_price = "39100";
+        // = "36600";
+        $product->img_url = "tiger-generator-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 4;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //21
         $product = new Product();
@@ -340,12 +375,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         20"
         ';
-        $product->twenty_price = "31500";
-        $product->fourty_price = "30000";
-        $product->image = "polystar-fan-2-medium.png";
+        $product->retail_price = "31500";
+        // = "30000";
+        $product->img_url = "polystar-fan-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 5;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //22
         $product = new Product();
@@ -365,12 +402,14 @@ class ProductSeeder extends Seeder
         Tempered glass lid,
         Enameled trivet for gas burner 
         ';
-        $product->twenty_price = "75200";
-        $product->fourty_price = "70700";
-        $product->image = "century-cooker-1-medium.png";
+        $product->retail_price = "75200";
+        // = "70700";
+        $product->img_url = "century-cooker-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 6;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //23
         $product = new Product();
@@ -386,12 +425,14 @@ class ProductSeeder extends Seeder
         Knobs with base,
         Downside oven burner
         ';
-        $product->twenty_price = "76700";
-        $product->fourty_price = "72500";
-        $product->image = "polystar-gas-c-1-medium.png";
+        $product->retail_price = "76700";
+        // = "72500";
+        $product->img_url = "polystar-gas-c-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 6;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //24
         $product = new Product();
@@ -406,12 +447,14 @@ class ProductSeeder extends Seeder
         Knobs with base,
         Downside oven burner
         ';
-        $product->twenty_price = "85600";
-        $product->fourty_price = "80500";
-        $product->image = "polystar-gas-c-4-medium.png";
+        $product->retail_price = "85600";
+        // = "80500";
+        $product->img_url = "polystar-gas-c-4-medium.png";
         $product->user_id = 1;
         $product->category_id = 6;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //25
         $product = new Product();
@@ -420,12 +463,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         1.5HP
         ';
-        $product->twenty_price = "120000";
-        $product->fourty_price = "112500";
-        $product->image = "polystar-ac-2-medium.png";
+        $product->retail_price = "120000";
+        // = "112500";
+        $product->img_url = "polystar-ac-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 7;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //26
         $product = new Product();
@@ -434,15 +479,17 @@ class ProductSeeder extends Seeder
         $product->features = '
         1HP
         ';
-        $product->twenty_price = "114100";
-        $product->fourty_price = "108200";
-        $product->image = "polystar-ac-1-medium.png";
+        $product->retail_price = "114100";
+        // = "108200";
+        $product->img_url = "polystar-ac-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 7;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //27
-       
+
         //28
         $product = new Product();
         $product->name = 'Polystar 20L Microwave Oven';
@@ -450,12 +497,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         20L
         ';
-        $product->twenty_price = "31700";
-        $product->fourty_price = "30400";
-        $product->image = "midea-microwave-2-medium.png";
+        $product->retail_price = "31700";
+        // = "30400";
+        $product->img_url = "midea-microwave-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 8;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //29
         $product = new Product();
@@ -470,12 +519,14 @@ class ProductSeeder extends Seeder
         Complete set with its accessories,
         Table stand
         ';
-        $product->twenty_price = "135000";
-        $product->fourty_price = "126600";
-        $product->image = "sewing-m-1-medium.png";
+        $product->retail_price = "135000";
+        // = "126600";
+        $product->img_url = "sewing-m-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 9;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //30
         $product = new Product();
@@ -484,12 +535,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         40"
         ';
-        $product->twenty_price = "144200";
-        $product->fourty_price = "136500";
-        $product->image = "polystar-tv-5-medium.png";
+        $product->retail_price = "144200";
+        // = "136500";
+        $product->img_url = "polystar-tv-5-medium.png";
         $product->user_id = 1;
         $product->category_id = 10;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //31
         $product = new Product();
@@ -498,12 +551,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         32"
         ';
-        $product->twenty_price = "94500";
-        $product->fourty_price = "88500";
-        $product->image = "polystar-tv-1-medium.png";
+        $product->retail_price = "94500";
+        // = "88500";
+        $product->img_url = "polystar-tv-1-medium.png";
         $product->user_id = 1;
         $product->category_id = 10;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //32
         $product = new Product();
@@ -512,12 +567,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         32"
         ';
-        $product->twenty_price = "87100";
-        $product->fourty_price = "82300";
-        $product->image = "polystar-tv-2-medium.png";
+        $product->retail_price = "87100";
+        // = "82300";
+        $product->img_url = "polystar-tv-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 10;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //33
         $product = new Product();
@@ -526,12 +583,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         20"
         ';
-        $product->twenty_price = "49500";
-        $product->fourty_price = "46300";
-        $product->image = "polystar-tv-3-medium.png";
+        $product->retail_price = "49500";
+        // = "46300";
+        $product->img_url = "polystar-tv-3-medium.png";
         $product->user_id = 1;
         $product->category_id = 10;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //34
         $product = new Product();
@@ -546,12 +605,14 @@ class ProductSeeder extends Seeder
         Front Camera 8 MP,
         5.5 Inch Gorilla Glass
         ';
-        $product->twenty_price = "97600";
-        $product->fourty_price = "92200";
-        $product->image = "infinix-zero-4-medium.png";
+        $product->retail_price = "97600";
+        // = "92200";
+        $product->img_url = "infinix-zero-4-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //35
         $product = new Product();
@@ -566,12 +627,14 @@ class ProductSeeder extends Seeder
         Camera: 8MP Rear, 5MP Front,
         Battery: 4000mAh capacity Dirac Stereo Widening. Enjoy more enthralling auditory feast. INFINIX HOT5 Lite With
         ';
-        $product->twenty_price = "61700";
-        $product->fourty_price = "58400";
-        $product->image = "infinix-hot-5-2-medium.png";
+        $product->retail_price = "61700";
+        // = "58400";
+        $product->img_url = "infinix-hot-5-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //36
         $product = new Product();
@@ -586,12 +649,14 @@ class ProductSeeder extends Seeder
         Camera: 8MP Rear, 5MP Front,
         Battery: 4000mAh capacity Dirac Stereo Widening. Enjoy more enthralling auditory feast. INFINIX HOT5 Lite With
         ';
-        $product->twenty_price = "55700";
-        $product->fourty_price = "52600";
-        $product->image = "infinix-hot-5-medium.png";
+        $product->retail_price = "55700";
+        // = "52600";
+        $product->img_url = "infinix-hot-5-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 3;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //37
         $product = new Product();
@@ -604,12 +669,14 @@ class ProductSeeder extends Seeder
         13MP Rear Camera, 5MP Front Camera,
         16GB Internal Memory, 1GB RAM
         ';
-        $product->twenty_price = "54100";
-        $product->fourty_price = "50700";
-        $product->image = "k7-spark-medium.png";
+        $product->retail_price = "54100";
+        // = "50700";
+        $product->img_url = "k7-spark-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //38
         $product = new Product();
@@ -618,12 +685,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         1GB
         ';
-        $product->twenty_price = "70600";
-        $product->fourty_price = "66400";
-        $product->image = "k9-plus-medium.png";
+        $product->retail_price = "70600";
+        // = "66400";
+        $product->img_url = "k9-plus-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //39
         $product = new Product();
@@ -636,12 +705,14 @@ class ProductSeeder extends Seeder
         5MP Rear Camera, 2MP Front Camera,
         8GB Internal Memory, 1GB RAM
         ';
-        $product->twenty_price = "39000";
-        $product->fourty_price = "36400";
-        $product->image = "p5-mini-medium.png";
+        $product->retail_price = "39000";
+        // = "36400";
+        $product->img_url = "p5-mini-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //40
         $product = new Product();
@@ -650,12 +721,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         16GB, 2GB
         ';
-        $product->twenty_price = "84200";
-        $product->fourty_price = "80200";
-        $product->image = "infinix-note-4-medium.png";
+        $product->retail_price = "84200";
+        // = "80200";
+        $product->img_url = "infinix-note-4-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //41
         $product = new Product();
@@ -664,12 +737,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         8GB, 1GB
         ';
-        $product->twenty_price = "39200";
-        $product->fourty_price = "36700";
-        $product->image = "itel-a12-medium.png";
+        $product->retail_price = "39200";
+        // = "36700";
+        $product->img_url = "itel-a12-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //42
         $product = new Product();
@@ -688,12 +763,14 @@ class ProductSeeder extends Seeder
         Network Conn: 3G,
         Battery: 3,000mAh
         ';
-        $product->twenty_price = "46700";
-        $product->fourty_price = "44400";
-        $product->image = "droipad-pad-medium.png";
+        $product->retail_price = "46700";
+        // = "44400";
+        $product->img_url = "droipad-pad-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //43
         $product = new Product();
@@ -709,12 +786,14 @@ class ProductSeeder extends Seeder
         Quad Core Processor,
         32Gb Storage
         ';
-        $product->twenty_price = "48000";
-        $product->fourty_price = "44500";
-        $product->image = "royale-a1-fero-medium.png";
+        $product->retail_price = "48000";
+        // = "44500";
+        $product->img_url = "royale-a1-fero-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //44
         $product = new Product();
@@ -727,12 +806,14 @@ class ProductSeeder extends Seeder
         1GB DDR3,
         16GB On Board Storage
         ';
-        $product->twenty_price = "51200";
-        $product->fourty_price = "48500";
-        $product->image = "vigitab-medium.png";
+        $product->retail_price = "51200";
+        // = "48500";
+        $product->img_url = "vigitab-medium.png";
         $product->user_id = 1;
         $product->category_id = 11;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //45
         $product = new Product();
@@ -741,12 +822,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         20"
         ';
-        $product->twenty_price = "33100";
-        $product->fourty_price = "30700";
-        $product->image = "ox-fan-medium.png";
+        $product->retail_price = "33100";
+        // = "30700";
+        $product->img_url = "ox-fan-medium.png";
         $product->user_id = 1;
         $product->category_id = 5;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //46
         $product = new Product();
@@ -761,12 +844,14 @@ class ProductSeeder extends Seeder
         Hot/Cold water,
         1 Year Warranty
         ';
-        $product->twenty_price = "61500";
-        $product->fourty_price = "58100";
-        $product->image = "polystar-water-d-2-medium.png";
+        $product->retail_price = "61500";
+        // = "58100";
+        $product->img_url = "polystar-water-d-2-medium.png";
         $product->user_id = 1;
         $product->category_id = 12;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //47
         $product = new Product();
@@ -775,12 +860,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         HT520
         ';
-        $product->twenty_price = "82500";
-        $product->fourty_price = "78000";
-        $product->image = "polystar-sound-s-4-medium.png";
+        $product->retail_price = "82500";
+        // = "78000";
+        $product->img_url = "polystar-sound-s-4-medium.png";
         $product->user_id = 1;
         $product->category_id = 13;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //48
         $product = new Product();
@@ -789,12 +876,14 @@ class ProductSeeder extends Seeder
         $product->features = '
         VT607
         ';
-        $product->twenty_price = "43500";
-        $product->fourty_price = "40500";
-        $product->image = "polystar-sound-s-3-medium.png";
+        $product->retail_price = "43500";
+        // = "40500";
+        $product->img_url = "polystar-sound-s-3-medium.png";
         $product->user_id = 1;
         $product->category_id = 13;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //49
         $product = new Product();
@@ -809,12 +898,14 @@ class ProductSeeder extends Seeder
         Network - WiFi 802.11 bgn, Bluetooth,
         Webcam + Mic, 
         ';
-        $product->twenty_price = "142700";
-        $product->fourty_price = "134600";
-        $product->image = "hp-255-medium.png";
+        $product->retail_price = "142700";
+        // = "134600";
+        $product->img_url = "hp-255-medium.png";
         $product->user_id = 1;
         $product->category_id = 14;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
         //50
         $product = new Product();
@@ -826,12 +917,14 @@ class ProductSeeder extends Seeder
         RAM :4gb,
         Processor : Intel Celeron
         ';
-        $product->twenty_price = "151600";
-        $product->fourty_price = "142600";
-        $product->image = "hp-15-celeron-medium.png";
+        $product->retail_price = "151600";
+        // = "142600";
+        $product->img_url = "hp-15-celeron-medium.png";
         $product->user_id = 1;
         $product->category_id = 14;
         $product->popularity = 2;
+        $product->is_active = true;
+        $product->type = "appliance";
         $product->save();
 
     }

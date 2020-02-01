@@ -1,41 +1,97 @@
+@import "./argon.scss";
+@import "./_variables";
 
-// Fonts
-// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-// @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
-// @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,200");
-@import url("http://fonts.googleapis.com/css?family=Lato:400,700,200");
-
-// Variables
-@import "variables";
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+html {
+    font-size: 75%;
 }
 
+body {
+    box-sizing: border-box;
+    font-family: $default-font-family;
+    height: 100vh;
+    font-size: $default-font-size;
+    font-weight: 500;
+    color: $default-font-color;
+    background-color: $default-body-bg;
+}
 
-.navbar {
-  	padding: 15px 25px;
-   	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-   	display: flex;
-   	justify-content: space-between;
-   	align-items: center;
-   	&__brand {
-        color: #fff;
-        font-weight: bold;
+.category-item {
+    transition: all 0.4s;
+    cursor: pointer;
+
+    span {
+        color: lighten($default-font-color, 20%);
+        font-weight: 400;
     }
-    &__list {
-    	margin: 0;
-        padding: 0;
+
+    i[data-type="caret"] {
+        display: none;
     }
-    &__item {
-    	display: inline;
-      margin-left: 25px;
-      color: #fff;
+
+    &:hover, &.active-category {
+        background-color: $default-body-bg;
+        border-left: 3px solid lighten($primary-color, 70%);
+
+        span {
+            color: $primary-color;
+            font-weight: 800;
+        }
+    }
+
+    &.active-category {
+        i[data-type="caret"] {
+            display: block;
+        }
     }
 }
 
-.navbar1{
-  background: #003366;
-  margin-bottom:50px;
+.product-card {
+    transform: translateY(0);
+    transition: transform .3s;
+
+    &:hover {
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+        transform: translateY(-1px);
+    }
+
+    .details {
+        font-size: 90%;
+        background-color: rgba(0, 0, 0, 0.01);
+        border-top: .1rem solid rgba(0, 0, 0, 0.05);
+    }
+}
+
+.price-overview {
+    tr {
+        border-top: .1rem solid $default-body-bg;
+    }
+
+    th {
+        color: lighten($default-font-color, 25%);
+        font-weight: 400;
+    }
+
+    th, td {
+        width: calc(100 - 30%)/2;
+    }
+
+    th:nth-child(1), td:nth-child(1) {
+        width: 30%;
+    }
+}
+
+.nav-pills .nav-link {
+    color: $primary-color;
+}
+
+.nav-pills .nav-link.active {
+    background-color: $primary-color;
+}
+
+.bg-default {
+    background-color: $primary-color !important;
+}
+
+.btn-default{
+    border-color: $primary-color !important;
 }

@@ -1,25 +1,4 @@
 {
-    "/js/fullcalendar.min.js": "/js/fullcalendar.min.js",
-    "/js/bootstrap-datetimepicker.js": "/js/bootstrap-datetimepicker.js",
-    "/js/moment.min.js": "/js/moment.min.js",
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/jquery.dataTables.min.js": "/js/jquery.dataTables.min.js",
-    "/js/jquery.validate.min.js": "/js/jquery.validate.min.js",
-    "/js/jquery-jvectormap.js": "/js/jquery-jvectormap.js",
-    "/js/bootstrap-switch.js": "/js/bootstrap-switch.js",
-    "/js/bootstrap-selectpicker.js": "/js/bootstrap-selectpicker.js",
-    "/js/bootstrap-notify.js": "/js/bootstrap-notify.js",
-    "/js/popper.min.js": "/js/popper.min.js",
-    "/js/jquery.3.2.1.min.js": "/js/jquery.3.2.1.min.js",
-    "/js/sweetalert2.min.js": "/js/sweetalert2.min.js",
-    "/js/nouislider.js": "/js/nouislider.js",
-    "/js/jquery.sharrre.js": "/js/jquery.sharrre.js",
-    "/js/jquery.bootstrap-wizard.js": "/js/jquery.bootstrap-wizard.js",
-    "/js/chartist.min.js": "/js/chartist.min.js",
-    "/js/bootstrap-tagsinput.js": "/js/bootstrap-tagsinput.js",
-    "/js/bootstrap-table.js": "/js/bootstrap-table.js",
-    "/js/light-bootstrap-dashboard790f.js": "/js/light-bootstrap-dashboard790f.js",
-    "/js/bootstrap.min.js": "/js/bootstrap.min.js",
-    "/css/all.css": "/css/all.css"
+    "/js/app.js": "/js/app.js?id=af63af15d143a8b1a87f",
+    "/css/app.css": "/css/app.css?id=7dbd39ffe23632dca74a"
 }
