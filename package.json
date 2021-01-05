@@ -15,7 +15,7 @@
     "laravel-mix": "^2.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.1.1",
     "datatables.net": "^1.10.19",
     "datatables.net-bs4": "^1.10.19",
